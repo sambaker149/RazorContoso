@@ -2,12 +2,16 @@
 @model RazorContoso.Pages.Students.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Student Details";
 }
 
-<h1>Edit</h1>
+<div class="text-center">
+    <h1 class="display-4">Contoso University Razor</h1>
+    <h2>By Samuel Baker</h2>
+</div>
+<h1>Edit Student</h1>
 
-<h4>Student</h4>
+<h4>Edit Student Details</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -30,14 +34,11 @@
                 <span asp-validation-for="Student.EnrollmentDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save Movie Details" class="btn btn-primary" /> |
+                <a class="btn btn-secondary" asp-page="./Index">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
