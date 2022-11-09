@@ -14,13 +14,13 @@ namespace RazorContoso.Data
 
             var students = new Student[]
             {
-                new Student{FirstMidName="Joe",LastName="Collins",EnrollmentDate=DateTime.Parse("2020-02-03")},
+                new Student{FirstMidName="Joe",LastName="Collins",EnrollmentDate=DateTime.Parse("2020-02-10")},
                 new Student{FirstMidName="Katy",LastName="Wickham",EnrollmentDate=DateTime.Parse("2020-02-10")},
-                new Student{FirstMidName="James",LastName="Hardy",EnrollmentDate=DateTime.Parse("2020-09-21")},
+                new Student{FirstMidName="James",LastName="Hardy",EnrollmentDate=DateTime.Parse("2020-09-28")},
                 new Student{FirstMidName="Luca",LastName="Percy",EnrollmentDate=DateTime.Parse("2020-09-28")},
-                new Student{FirstMidName="Natalie",LastName="Stevenson",EnrollmentDate=DateTime.Parse("2021-02-01")},
+                new Student{FirstMidName="Natalie",LastName="Stevenson",EnrollmentDate=DateTime.Parse("2021-02-08")},
                 new Student{FirstMidName="Alexandra",LastName="Higgins",EnrollmentDate=DateTime.Parse("2021-02-08")},
-                new Student{FirstMidName="Richard",LastName="Davies",EnrollmentDate=DateTime.Parse("2021-09-20")},
+                new Student{FirstMidName="Richard",LastName="Davies",EnrollmentDate=DateTime.Parse("2021-09-27")},
                 new Student{FirstMidName="Jessica",LastName="Ashcroft",EnrollmentDate=DateTime.Parse("2021-09-27")}
             };
 

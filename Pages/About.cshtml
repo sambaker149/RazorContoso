@@ -1,0 +1,41 @@
+﻿@page
+@model RazorContoso.Pages.AboutModel
+
+@{
+    ViewData["Title"] = "Student Body Statistics";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Contoso University Razor</h1>
+    <h2>By Samuel Baker</h2>
+</div>
+<h1>List of Students</h1>
+
+<p>
+    <a class="btn btn-info" asp-page="Students/Index">View Student List</a> 
+</p>
+
+<h2>Student Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Enrollment Date
+        </th>
+        <th>
+            Students
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Students)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @item.StudentCount
+            </td>
+        </tr>
+    }
+</table>
