@@ -23,19 +23,20 @@ namespace RazorContoso.Pages.Students
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Students == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Students.FirstOrDefaultAsync(m => m.StudentID == id);
-            if (student == null)
+            Student = await _context.Students
+                .Include(s => s.Enrollments)
+                .ThenInclude(e => e.Module)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.StudentID == id);
+
+            if (Student == null)
             {
                 return NotFound();
-            }
-            else 
-            {
-                Student = student;
             }
             return Page();
         }
