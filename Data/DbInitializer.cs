@@ -12,53 +12,281 @@ namespace RazorContoso.Data
                 return;   // DB has been seeded
             }
 
-            var students = new Student[]
+            var collins = new Student
             {
-                new Student{FirstMidName="Joe",LastName="Collins",EnrollmentDate=DateTime.Parse("2020-02-10")},
-                new Student{FirstMidName="Katy",LastName="Wickham",EnrollmentDate=DateTime.Parse("2020-02-10")},
-                new Student{FirstMidName="James",LastName="Hardy",EnrollmentDate=DateTime.Parse("2020-09-28")},
-                new Student{FirstMidName="Luca",LastName="Percy",EnrollmentDate=DateTime.Parse("2020-09-28")},
-                new Student{FirstMidName="Natalie",LastName="Stevenson",EnrollmentDate=DateTime.Parse("2021-02-08")},
-                new Student{FirstMidName="Alexandra",LastName="Higgins",EnrollmentDate=DateTime.Parse("2021-02-08")},
-                new Student{FirstMidName="Richard",LastName="Davies",EnrollmentDate=DateTime.Parse("2021-09-27")},
-                new Student{FirstMidName="Jessica",LastName="Ashcroft",EnrollmentDate=DateTime.Parse("2021-09-27")}
+                FirstMidName = "Joe",
+                LastName = "Collins",
+                EnrollmentDate = DateTime.Parse("2020/02/10")
             };
 
-            context.Students.AddRange(students);
-            context.SaveChanges();
-
-            var modules = new Module[]
+            var wickham = new Student
             {
-                new Module{ModuleID=550,Title="Web Applications",Credits=15},
-                new Module{ModuleID=551,Title="Open Source Systems",Credits=15},
-                new Module{ModuleID=556,Title="Network Systems",Credits=15},
-                new Module{ModuleID=557,Title="Software Engineering",Credits=15},
-                new Module{ModuleID=558,Title="Database Design",Credits=15},
-                new Module{ModuleID=565,Title="Web Services",Credits=15},
-                new Module{ModuleID=566,Title="Mobile Systems",Credits=15},
-                new Module{ModuleID=567,Title="OO Systems Development",Credits=15}
+                FirstMidName = "Katy",
+                LastName = "Wickham",
+                EnrollmentDate = DateTime.Parse("2020-02-10")
             };
 
-            context.Modules.AddRange(modules);
-            context.SaveChanges();
+            var hardy = new Student
+            {
+                FirstMidName = "James",
+                LastName = "Hardy",
+                EnrollmentDate = DateTime.Parse("2020-29-09")
+            };
+
+            var percy = new Student
+            {
+                FirstMidName = "Luca",
+                LastName = "Percy",
+                EnrollmentDate = DateTime.Parse("2020-29-09")
+            };
+
+            var stevenson = new Student
+            {
+                FirstMidName = "Natalie",
+                LastName = "Stevenson",
+                EnrollmentDate = DateTime.Parse("2021-02-08")
+            };
+
+            var higgins = new Student
+            {
+                FirstMidName = "Alexandra",
+                LastName = "Higgins",
+                EnrollmentDate = DateTime.Parse("2021-02-08")
+            };
+
+            var davies = new Student
+            {
+                FirstMidName = "Richard",
+                LastName = "Davies",
+                EnrollmentDate = DateTime.Parse("2021-09-27")
+            };
+
+            var ashcroft = new Student
+            {
+                FirstMidName = "Jessica",
+                LastName = "Ashcroft",
+                EnrollmentDate = DateTime.Parse("2021-09-27")
+            };
+
+            var roberts = new Instructor
+            {
+                FirstMidName = "Joseph",
+                LastName = "Roberts",
+                HireDate = DateTime.Parse("2005-08-31")
+            };
+
+            var millett = new Instructor
+            {
+                FirstMidName = "Lauren",
+                LastName = "Millett",
+                HireDate = DateTime.Parse("2000-04-01")
+            };
+
+            var howard = new Instructor
+            {
+                FirstMidName = "Michael",
+                LastName = "Howard",
+                HireDate = DateTime.Parse("1995-07-21")
+            };
+
+            var edwards = new Instructor
+            {
+                FirstMidName = "Emily",
+                LastName = "Edwards",
+                HireDate = DateTime.Parse("2010-05/05")
+            };
+
+            var matheson = new Instructor
+            {
+                FirstMidName = "Roger",
+                LastName = "Matheson",
+                HireDate = DateTime.Parse("2004-12-12")
+            };
+
+            var officeAssignments = new OfficeAssignment[]
+            {
+                new OfficeAssignment 
+                {
+                    Instructor = millett,
+                    Location = "N2.12" 
+                },
+                new OfficeAssignment 
+                {
+                    Instructor = edwards,
+                    Location = "N2.20" 
+                }
+            };
+
+            context.AddRange(officeAssignments);
+
+            var webdevelopment = new Department
+            {
+                Name = "Web Development",
+                Budget = 350000,
+                StartDate = DateTime.Parse("2007-09-01"),
+                Administrator = roberts
+            };
+
+            var computerscience = new Department
+            {
+                Name = "Computer Science",
+                Budget = 100000,
+                StartDate = DateTime.Parse("2007-09-01"),
+                Administrator = edwards
+            };
+
+            var webapplications = new Module
+            {
+                ModuleID = 550,
+                Title = "Web Applications",
+                Credits = 15,
+                Department = webdevelopment,
+                Instructors = new List<Instructor> { millett }
+
+            };
+            var opensourcesystems = new Module
+            {
+                ModuleID = 551,
+                Title = "Open Source Systems",
+                Credits = 15,
+                Department = computerscience,
+                Instructors = new List<Instructor> { edwards }
+            };
+
+            var networksystems = new Module
+            {
+                ModuleID = 556,
+                Title = "Network Systems",
+                Credits = 15,
+                Department = computerscience,
+                Instructors = new List<Instructor> { millett }
+            };
+
+            var softwareengineering = new Module
+            {
+                ModuleID = 557,
+                Title = "Software Engineering",
+                Credits = 15,
+                Department = computerscience,
+                Instructors = new List<Instructor> { roberts }
+            };
+
+            var databasedesign = new Module
+            {
+                ModuleID = 558,
+                Title = "Database Design",
+                Credits = 15,
+                Department = webdevelopment,
+                Instructors = new List<Instructor> { howard }
+            };
+
+            var webservices = new Module
+            {
+                ModuleID = 565,
+                Title = "Web Services",
+                Credits = 15,
+                Department = webdevelopment,
+                Instructors = new List<Instructor> { edwards }
+            };
+
+            var mobilesystems = new Module
+            {
+                ModuleID = 566,
+                Title = "Mobile Systems",
+                Credits = 15,
+                Department = webdevelopment,
+                Instructors = new List<Instructor> { millett }
+            };
+
+            var oosystemsdev = new Module
+            {
+                ModuleID = 567,
+                Title = "OO Systems Development",
+                Credits = 15,
+                Department = webdevelopment,
+                Instructors = new List<Instructor> { matheson }
+            };
 
             var enrollments = new Enrollment[]
             {
-                new Enrollment{StudentID=1,ModuleID=550,Grade=Grade.A},
-                new Enrollment{StudentID=1,ModuleID=565,Grade=Grade.C},
-                new Enrollment{StudentID=1,ModuleID=566,Grade=Grade.B},
-                new Enrollment{StudentID=2,ModuleID=551,Grade=Grade.B},
-                new Enrollment{StudentID=2,ModuleID=556,Grade=Grade.F},
-                new Enrollment{StudentID=2,ModuleID=565,Grade=Grade.F},
-                new Enrollment{StudentID=3,ModuleID=558},
-                new Enrollment{StudentID=4,ModuleID=550},
-                new Enrollment{StudentID=4,ModuleID=558,Grade=Grade.F},
-                new Enrollment{StudentID=5,ModuleID=556,Grade=Grade.C},
-                new Enrollment{StudentID=6,ModuleID=566},
-                new Enrollment{StudentID=7,ModuleID=558,Grade=Grade.A},
+                new Enrollment 
+                {
+                    Student = collins,
+                    Module = webapplications,
+                    Grade = Grade.A
+                },
+                new Enrollment 
+                {
+                    Student = collins,
+                    Module = webservices,
+                    Grade = Grade.C
+                },
+                new Enrollment 
+                {
+                    Student = collins,
+                    Module = mobilesystems,
+                    Grade = Grade.B
+                },
+                new Enrollment 
+                {
+                    Student = wickham,
+                    Module = opensourcesystems,
+                    Grade = Grade.B
+                },
+                new Enrollment 
+                {
+                    Student = wickham,
+                    Module = networksystems,
+                    Grade = Grade.F
+                },
+                new Enrollment 
+                {
+                    Student = wickham,
+                    Module = webservices,
+                    Grade = Grade.F
+                },
+                new Enrollment 
+                {
+                    Student = hardy,
+                    Module = databasedesign
+                },
+                new Enrollment 
+                {
+                    Student = percy,
+                    Module = webapplications
+                },
+                new Enrollment 
+                {
+                    Student = percy,
+                    Module = databasedesign,
+                    Grade = Grade.F
+                },
+                new Enrollment 
+                {
+                    Student = stevenson,
+                    Module = networksystems,
+                    Grade = Grade.C
+                },
+                new Enrollment 
+                {
+                    Student = higgins,
+                    Module = mobilesystems
+                },
+                new Enrollment
+                {
+                    Student = davies,
+                    Module = databasedesign,
+                    Grade = Grade.A
+                },
+                new Enrollment
+                {
+                    Student = ashcroft,
+                    Module = webapplications,
+                    Grade = Grade.B
+                }
             };
 
-            context.Enrollments.AddRange(enrollments);
+            context.AddRange(enrollments);
             context.SaveChanges();
         }
     }
