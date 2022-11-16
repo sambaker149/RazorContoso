@@ -105,15 +105,15 @@ namespace RazorContoso.Data
 
             var officeAssignments = new OfficeAssignment[]
             {
-                new OfficeAssignment 
+                new OfficeAssignment
                 {
                     Instructor = millett,
-                    Location = "N2.12" 
+                    Location = "N2.12"
                 },
-                new OfficeAssignment 
+                new OfficeAssignment
                 {
                     Instructor = edwards,
-                    Location = "N2.20" 
+                    Location = "N2.20"
                 }
             };
 
@@ -209,65 +209,65 @@ namespace RazorContoso.Data
 
             var enrollments = new Enrollment[]
             {
-                new Enrollment 
+                new Enrollment
                 {
                     Student = collins,
                     Module = webapplications,
                     Grade = Grade.A
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = collins,
                     Module = webservices,
                     Grade = Grade.C
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = collins,
                     Module = mobilesystems,
                     Grade = Grade.B
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = wickham,
                     Module = opensourcesystems,
                     Grade = Grade.B
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = wickham,
                     Module = networksystems,
                     Grade = Grade.F
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = wickham,
                     Module = webservices,
                     Grade = Grade.F
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = hardy,
                     Module = databasedesign
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = percy,
                     Module = webapplications
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = percy,
                     Module = databasedesign,
                     Grade = Grade.F
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = stevenson,
                     Module = networksystems,
                     Grade = Grade.C
                 },
-                new Enrollment 
+                new Enrollment
                 {
                     Student = higgins,
                     Module = mobilesystems

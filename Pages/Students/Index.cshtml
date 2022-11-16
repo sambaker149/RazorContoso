@@ -25,7 +25,6 @@
         </p>
     </div>
 </form>
-
 <table class="table">
     <thead>
         <tr>
@@ -69,12 +68,10 @@
         }
     </tbody>
 </table>
-
 @{
     var prevDisabled = !Model.Students.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.Students.HasNextPage ? "disabled" : "";
 }
-
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Students.PageIndex - 1)"

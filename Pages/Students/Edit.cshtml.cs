@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using RazorContoso.Data;
 using RazorContoso.Models;
 
 namespace RazorContoso.Pages.Students
 {
     public class EditModel : PageModel
     {
-        private readonly RazorContoso.Data.SchoolContext _context;
+        private readonly Data.SchoolContext _context;
 
-        public EditModel(RazorContoso.Data.SchoolContext context)
+        public EditModel(Data.SchoolContext context)
         {
             _context = context;
         }
@@ -64,7 +57,7 @@ namespace RazorContoso.Pages.Students
 
         private bool StudentExists(int id)
         {
-          return _context.Students.Any(e => e.StudentID == id);
+            return _context.Students.Any(e => e.StudentID == id);
         }
     }
 }

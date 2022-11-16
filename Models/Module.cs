@@ -5,7 +5,7 @@ namespace RazorContoso.Models
 {
     public class Module
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None),
+        [DatabaseGenerated(DatabaseGeneratedOption.None), 
             Display(Name = "Number")]
         public int ModuleID { get; set; }
 

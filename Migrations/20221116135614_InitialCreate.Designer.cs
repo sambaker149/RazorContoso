@@ -12,8 +12,8 @@ using RazorContoso.Data;
 namespace RazorContoso.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20221112182520_Initial")]
-    partial class Initial
+    [Migration("20221116135614_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

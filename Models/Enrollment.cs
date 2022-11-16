@@ -18,9 +18,8 @@ namespace RazorContoso.Models
         [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
 
-        public Module Module { get; set; }
-
         // Navigation Properties
+        public Module Module { get; set; }
         public Student Student { get; set; }
     }
 }

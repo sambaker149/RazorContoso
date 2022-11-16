@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using RazorContoso.Data;
 using RazorContoso.Models;
 
 namespace RazorContoso.Pages.Students
 {
     public class CreateModel : PageModel
     {
-        private readonly RazorContoso.Data.SchoolContext _context;
+        private readonly Data.SchoolContext _context;
 
-        public CreateModel(RazorContoso.Data.SchoolContext context)
+        public CreateModel(Data.SchoolContext context)
         {
             _context = context;
         }
