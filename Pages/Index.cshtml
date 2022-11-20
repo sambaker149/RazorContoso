@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Homepage";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
@@ -15,5 +15,20 @@
             href="Students/Index">Students</a> 
             List of Enrolled Students
         </li>
+        <li class="list-group-item">
+            <a class="btn btn-info" 
+            href="Modules/Index">Modules</a> 
+            List of Modules
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-warning" 
+            href="/Instructors/Index">Instructors</a> 
+            List of Instructors
+        </li>
+        @*<li class="list-group-item">
+            <a class="btn btn-danger" 
+            href="/Departments/Index">Departments</a> 
+            List of Departments
+        </li>*@
     </ol>
 </section>

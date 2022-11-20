@@ -5,7 +5,7 @@ namespace RazorContoso.Models
 {
     public class Instructor
     {
-        public int ID { get; set; }
+        public int InstructorID { get; set; }
 
         [Required, Display(Name = "Last Name"), StringLength(50)]
         public string LastName { get; set; }

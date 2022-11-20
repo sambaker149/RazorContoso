@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RazorContoso.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class FinalCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace RazorContoso.Migrations
                 name: "Instructor",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    InstructorID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -21,7 +21,7 @@ namespace RazorContoso.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instructor", x => x.ID);
+                    table.PrimaryKey("PK_Instructor", x => x.InstructorID);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,7 +57,7 @@ namespace RazorContoso.Migrations
                         name: "FK_Departments_Instructor_InstructorID",
                         column: x => x.InstructorID,
                         principalTable: "Instructor",
-                        principalColumn: "ID");
+                        principalColumn: "InstructorID");
                 });
 
             migrationBuilder.CreateTable(
@@ -74,7 +74,7 @@ namespace RazorContoso.Migrations
                         name: "FK_OfficeAssignments_Instructor_InstructorID",
                         column: x => x.InstructorID,
                         principalTable: "Instructor",
-                        principalColumn: "ID",
+                        principalColumn: "InstructorID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -129,17 +129,17 @@ namespace RazorContoso.Migrations
                 name: "InstructorModule",
                 columns: table => new
                 {
-                    InstructorsID = table.Column<int>(type: "int", nullable: false),
+                    InstructorsInstructorID = table.Column<int>(type: "int", nullable: false),
                     ModulesModuleID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InstructorModule", x => new { x.InstructorsID, x.ModulesModuleID });
+                    table.PrimaryKey("PK_InstructorModule", x => new { x.InstructorsInstructorID, x.ModulesModuleID });
                     table.ForeignKey(
-                        name: "FK_InstructorModule_Instructor_InstructorsID",
-                        column: x => x.InstructorsID,
+                        name: "FK_InstructorModule_Instructor_InstructorsInstructorID",
+                        column: x => x.InstructorsInstructorID,
                         principalTable: "Instructor",
-                        principalColumn: "ID",
+                        principalColumn: "InstructorID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_InstructorModule_Module_ModulesModuleID",

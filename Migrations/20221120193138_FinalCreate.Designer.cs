@@ -12,8 +12,8 @@ using RazorContoso.Data;
 namespace RazorContoso.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20221116135614_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221120193138_FinalCreate")]
+    partial class FinalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,13 +26,13 @@ namespace RazorContoso.Migrations
 
             modelBuilder.Entity("InstructorModule", b =>
                 {
-                    b.Property<int>("InstructorsID")
+                    b.Property<int>("InstructorsInstructorID")
                         .HasColumnType("int");
 
                     b.Property<int>("ModulesModuleID")
                         .HasColumnType("int");
 
-                    b.HasKey("InstructorsID", "ModulesModuleID");
+                    b.HasKey("InstructorsInstructorID", "ModulesModuleID");
 
                     b.HasIndex("ModulesModuleID");
 
@@ -98,11 +98,11 @@ namespace RazorContoso.Migrations
 
             modelBuilder.Entity("RazorContoso.Models.Instructor", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("InstructorID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InstructorID"), 1L, 1);
 
                     b.Property<string>("FirstMidName")
                         .IsRequired()
@@ -118,7 +118,7 @@ namespace RazorContoso.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("ID");
+                    b.HasKey("InstructorID");
 
                     b.ToTable("Instructor", (string)null);
                 });
@@ -190,7 +190,7 @@ namespace RazorContoso.Migrations
                 {
                     b.HasOne("RazorContoso.Models.Instructor", null)
                         .WithMany()
-                        .HasForeignKey("InstructorsID")
+                        .HasForeignKey("InstructorsInstructorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

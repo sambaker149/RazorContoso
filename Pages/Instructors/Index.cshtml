@@ -1,0 +1,132 @@
+﻿@page "{id:int?}"
+@model RazorContoso.Pages.Instructors.IndexModel
+
+@{
+    ViewData["Title"] = "Instructors List";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Contoso University Razor</h1>
+    <h2>By Samuel Baker</h2>
+</div>
+<h1>List of Instructors</h1>
+
+<p>
+    <a class="btn btn-info" asp-page="Create">Add Instructor</a> 
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Hire Date</th>
+            <th>Office</th>
+            <th>Courses</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.InstructorData.Instructors)
+        {
+            string selectedRow = "";
+            if (item.InstructorID == Model.InstructorID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @if (item.OfficeAssignment != null)
+                    {
+                        @item.OfficeAssignment.Location
+                    }
+                </td>
+                <td>
+                    @{
+                        foreach (var course in item.Modules)
+                        {
+                            @course.ModuleID @:  @course.Title <br />
+                        }
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-page="./Index" asp-route-id="@item.InstructorID">Select Instructor</a> |
+                    <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.InstructorID">Instructor Details</a> |
+                    <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.InstructorID">Edit Instructor</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.InstructorID">Delete Instructor</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.InstructorData.Modules != null)
+{
+    <h3>Courses Taught by Selected Instructor</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Department</th>
+        </tr>
+
+        @foreach (var item in Model.InstructorData.Modules)
+        {
+            string selectedRow = "";
+            if (item.ModuleID == Model.CourseID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    <a class="btn btn-primary" asp-page="./Index" asp-route-courseID="@item.ModuleID">Select</a>
+                </td>
+                <td>
+                    @item.ModuleID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@if (Model.InstructorData.Enrollments != null)
+{
+    <h3>
+        Students Enrolled in Selected Course
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        @foreach (var item in Model.InstructorData.Enrollments)
+        {
+            <tr>
+                <td>
+                    @item.Student.FullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+            </tr>
+        }
+    </table>
+}

@@ -1,4 +1,7 @@
 ﻿using RazorContoso.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RazorContoso.Data
 {
@@ -16,7 +19,7 @@ namespace RazorContoso.Data
             {
                 FirstMidName = "Joe",
                 LastName = "Collins",
-                EnrollmentDate = DateTime.Parse("2020/02/10")
+                EnrollmentDate = DateTime.Parse("2020-02-10")
             };
 
             var wickham = new Student
@@ -30,14 +33,14 @@ namespace RazorContoso.Data
             {
                 FirstMidName = "James",
                 LastName = "Hardy",
-                EnrollmentDate = DateTime.Parse("2020-29-09")
+                EnrollmentDate = DateTime.Parse("2020-09-29")
             };
 
             var percy = new Student
             {
                 FirstMidName = "Luca",
                 LastName = "Percy",
-                EnrollmentDate = DateTime.Parse("2020-29-09")
+                EnrollmentDate = DateTime.Parse("2020-09-29")
             };
 
             var stevenson = new Student
@@ -93,7 +96,7 @@ namespace RazorContoso.Data
             {
                 FirstMidName = "Emily",
                 LastName = "Edwards",
-                HireDate = DateTime.Parse("2010-05/05")
+                HireDate = DateTime.Parse("2010-05-05")
             };
 
             var matheson = new Instructor

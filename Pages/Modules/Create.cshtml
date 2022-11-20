@@ -1,0 +1,49 @@
+﻿@page
+@model RazorContoso.Pages.Modules.CreateModel
+
+@{
+    ViewData["Title"] = "Add Module";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Contoso University Razor</h1>
+    <h2>By Samuel Baker</h2>
+</div>
+<h1>Add Module</h1>
+
+<h4>Enter Module Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Module.ModuleID" class="control-label"></label>
+                <input asp-for="Module.ModuleID" class="form-control" />
+                <span asp-validation-for="Module.ModuleID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Module.Title" class="control-label"></label>
+                <input asp-for="Module.Title" class="form-control" />
+                <span asp-validation-for="Module.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Module.Credits" class="control-label"></label>
+                <input asp-for="Module.Credits" class="form-control" />
+                <span asp-validation-for="Module.Credits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Module.DepartmentID" class="control-label"></label>
+                <select asp-for="Module.DepartmentID" class ="form-control" asp-items="ViewBag.DepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Module" class="btn btn-primary" /> |
+                <a class="btn btn-secondary" asp-page="./Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,60 @@
+﻿@page
+@model RazorContoso.Pages.Courses.IndexModel
+
+@{
+    ViewData["Title"] = "Modules List";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Contoso University Razor</h1>
+    <h2>By Samuel Baker</h2>
+</div>
+<h1>List of Modules</h1>
+
+<p>
+    <a class="btn btn-info" asp-page="Create">Add Module</a> 
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modules[0].ModuleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modules[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modules[0].Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modules[0].Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Modules)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+                <td>
+                    <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ModuleID">Module Details</a> |
+                    <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.ModuleID">Edit Module</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ModuleID">Delete Module</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
